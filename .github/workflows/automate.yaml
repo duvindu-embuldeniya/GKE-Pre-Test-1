@@ -91,6 +91,9 @@ jobs:
 
             sudo git pull origin main
 
+            gcloud auth activate-service-account --key-file=/opt/clickmart/sa.json
+            gcloud auth configure-docker europe-north2-docker.pkg.dev -q
+
             sudo docker compose -f docker-compose.prod.yaml up --build -d
 
 
