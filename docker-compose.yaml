@@ -49,7 +49,7 @@ services:
     build:
       context: ./frontend
       args:
-        VITE_SERVER_BASE_URL: "/api/v1"
+        VITE_SERVER_BASE_URL: "/api/v1/"
     image: frontend:react
     container_name: react_container
     # ports:
