@@ -26,7 +26,7 @@
 
 
 # ...Test(2)...#
-name: Build + Push 
+name: Build + Push
 
 on:
   push:
@@ -85,13 +85,14 @@ jobs:
           host: ${{ secrets.GCP_HOST }}
           username: ${{ secrets.GCP_USER }}
           key: ${{ secrets.GCP_SSH_KEY }}
-          envs: IMAGE_TAG,GCP_PROJECT_ID,BACKEND_REPO,FRONTEND_REPO
+          envs: IMAGE_TAG,GCP_REGION
           script: |
             cd /opt/clickmart
 
-            sudo git pull origin main
+            gcloud auth configure-docker ${GCP_REGION}-docker.pkg.dev
 
-            sudo docker compose -f docker-compose.prod.yaml up --build -d
+            docker compose -f docker-compose.prod.yaml pull
+            docker compose -f docker-compose.prod.yaml up -d
 
 
 
