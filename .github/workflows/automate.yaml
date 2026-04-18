@@ -73,11 +73,12 @@ jobs:
 
       - name: Build & Push Frontend Image to GAR
         run: |
-          docker build \
+            docker build \
+            --build-arg VITE_SERVER_BASE_URL=/api/v1 \
             --tag europe-north2-docker.pkg.dev/${GCP_PROJECT_ID}/${FRONTEND_REPO}/frontend:${IMAGE_TAG} \
             ./frontend
 
-          docker push europe-north2-docker.pkg.dev/${GCP_PROJECT_ID}/${FRONTEND_REPO}/frontend:${IMAGE_TAG}
+            docker push europe-north2-docker.pkg.dev/${GCP_PROJECT_ID}/${FRONTEND_REPO}/frontend:${IMAGE_TAG}
 
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.3
