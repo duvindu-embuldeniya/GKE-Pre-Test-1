@@ -181,6 +181,7 @@ jobs:
           key: ${{ secrets.GCP_SSH_KEY }}
           script: |
             cd /opt/clickmart
+            sudo git pull origin main
             sudo gcloud auth activate-service-account --key-file=/opt/clickmart/sa.json
             sudo gcloud auth configure-docker europe-north2-docker.pkg.dev -q
             sudo docker compose -f docker-compose.prod.yaml up -d
