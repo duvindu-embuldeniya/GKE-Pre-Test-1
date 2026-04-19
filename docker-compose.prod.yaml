@@ -18,7 +18,7 @@ services:
   #   restart: unless-stopped
 
   backend:
-    image: europe-north2-docker.pkg.dev/duvindu-493407/backend/backend:21
+    image: europe-north2-docker.pkg.dev/duvindu-493407/backend/backend:22
     container_name: django_container
     # ports:
     #   - 8000:8000
@@ -45,7 +45,7 @@ services:
     restart: unless-stopped
 
   frontend:
-    image: europe-north2-docker.pkg.dev/duvindu-493407/frontend/frontend:21
+    image: europe-north2-docker.pkg.dev/duvindu-493407/frontend/frontend:22
     container_name: react_container
     # build:
     #   args:
