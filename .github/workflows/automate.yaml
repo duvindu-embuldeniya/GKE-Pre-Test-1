@@ -103,10 +103,13 @@
 # ...Test(3)...#
 name: Build + Push + Deploy + Artifacts
 
+# on:
+#   push:
+#     branches:
+#       - main
+
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
   build-push-deploy:
