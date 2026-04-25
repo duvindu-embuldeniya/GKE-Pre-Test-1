@@ -1,0 +1,29 @@
+[1]
+non-interact authentication / passwordless authentication
+(visudo)
+
+[2]
+🐳 Docker setup
+Added <duvindu_inbox> to Docker group
+Fixed “permission denied (docker.sock)” issue
+Now user can run Docker without issues
+
+[3]
+🔐 GCP / Artifact Registry access
+Created service account JSON on VM (sa.json)
+Activated service account on VM
+Configured Docker to use GCP Artifact Registry
+Fixed “Unauthenticated request” error
+
+[4]
+//access json file which created in previous step...//
+sudo gcloud auth activate-service-account --key-file=/opt/clickmart/sa.json
+👉 Gives this VM permission to access GCP resources (like Artifact Registry)
+
+[5]
+sudo gcloud auth configure-docker europe-north2-docker.pkg.dev -q
+👉 Allows docker pull and docker push from/to Artifact Registry
+
+[5]
+>>> vite build within github-action
+>>> use sudo for every execution cmds related to inside vm in workflow...
